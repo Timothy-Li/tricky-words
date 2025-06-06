@@ -1,12 +1,36 @@
-# React + Vite
+# Tricky Words App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Support children learning to read English by showing tricky words one at a time. A parent listens and clicks “Right” or “Wrong” to track reading accuracy.
 
-Currently, two official plugins are available:
+##   Build Plan
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+MVP 1 - Core functionality
+- start button
+- display 1 word at a time (total of 10 words)
+- right/wrong buttons
+- track score
+- track progress
+- show a summary at the end
 
-## Expanding the ESLint configuration
+MVP 2 - Improve usability
+- Styling: sizing, fonts and colour
+- transitions/animations between words
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+MVP 3 - Enhanced functionality
+- Text to speech API https://cloud.google.com/text-to-speech
+- Mobile/tablet compatibility
+
+Further stretch goals/ideas
+- Words to be stored in external database
+- User log-in
+- Reward system
+- Custom tricky words
+- Words can be manually added/removed from library e.g. once it's no longer tricky for the reader anymore
+- AI suggestion for new words
+
+## File Structure
+
+![fs](https://github.com/user-attachments/assets/02f2e028-5946-4e19-818b-d98ad0a9a381)
+
+## State and Props
+
