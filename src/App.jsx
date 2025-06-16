@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+
 import Header from "./components/Header/Header";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import WordCard from "./components/WordCard/WordCard";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
 import trickyWords from "./data/trickyWords.json";
 
@@ -57,6 +59,11 @@ function App() {
     if (roundInProgress && currentIndex < TOTAL_WORDS) {
       return (
         <>
+          <ProgressBar
+            current={currentIndex + 1}
+            total={TOTAL_WORDS}
+            score={score}
+          />
           <WordCard
             word={shuffledWords[currentIndex]}
             onAnswer={handleAnswer}
