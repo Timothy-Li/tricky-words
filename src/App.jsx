@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import WordCard from "./components/WordCard/WordCard";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
+import SummaryScreen from "./components/SummaryScreen/SummaryScreen";
 
 import trickyWords from "./data/trickyWords.json";
 
@@ -28,6 +29,13 @@ function App() {
 
   const startGame = () => {
     setShuffledWords(shuffleArray(trickyWords).slice(0, TOTAL_WORDS));
+    setRoundInProgress(true);
+    setCurrentIndex(0);
+    setScore(0);
+    setAnswers([]);
+  };
+
+  const restartSameWords = () => {
     setRoundInProgress(true);
     setCurrentIndex(0);
     setScore(0);
@@ -69,6 +77,17 @@ function App() {
             onAnswer={handleAnswer}
           />
         </>
+      );
+    }
+    if (currentIndex === TOTAL_WORDS) {
+      return (
+        <SummaryScreen
+          score={score}
+          total={TOTAL_WORDS}
+          answers={answers}
+          restartSame={restartSameWords}
+          restartNew={startGame}
+        />
       );
     }
   };
