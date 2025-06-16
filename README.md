@@ -62,6 +62,8 @@ tricky-words/
 ├── public/
 ├── src/
 │   ├── components/
+│   │   ├── Header/
+│   │   │   └── Header.jsx
 │   │   ├── HomeScreen/
 │   │   │   └── HomeScreen.jsx
 │   │   ├── WordCard/
@@ -71,7 +73,7 @@ tricky-words/
 │   │   └── SummaryScreen/
 │   │       └── SummaryScreen.jsx
 │   ├── data/
-│   │   └── trickWords.json
+│   │   └── trickyWords.json
 │   ├── App.jsx
 │   ├── App.css
 │   └── main.jsx
