@@ -4,26 +4,26 @@ Support children learning to read English by showing tricky words one at a time.
 
 ## Build Plan
 
-MVP 1 - Core functionality
+**MVP 1 - Core functionality**
 
-- start button
-- display 1 word at a time (total of 10 words)
-- right/wrong buttons
-- track score
-- track progress
-- show a summary at the end
+- Start button
+- Display 1 word at a time (total of 10 words)
+- Right/wrong buttons
+- Track score
+- Track progress
+- Show a summary at the end
 
-MVP 2 - Improve usability
+**MVP 2 - Improve usability**
 
 - Styling: sizing, fonts and colour
-- transitions/animations between words
+- Transitions/animations between words
 
-MVP 3 - Enhanced functionality
+**MVP 3 - Enhanced functionality**
 
 - Text to speech API https://cloud.google.com/text-to-speech
 - Mobile/tablet compatibility
 
-Further stretch goals/ideas
+**Stretch goals/further ideas**
 
 - Words to be stored in external database
 - User log-in
@@ -32,6 +32,52 @@ Further stretch goals/ideas
 - Words can be manually added/removed from library e.g. once it's no longer tricky for the reader anymore
 - AI suggestion for new words
 
+## Tech Stack
+
+**Frontend:**
+
+- React (JavaScript)
+- Vite
+- CSS
+
+**Testing:**
+
+- Vitest
+- React Testing Library
+
+**Backend (planned)**
+
+- Node.js with Express
+- PostgreSQL
+
+**Deployment**
+
+- Vercel (frontend)
+
 ## File Structure
 
-## State and Props
+```plaintext
+tricky-words/
+├── node_modules/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── HomeScreen/
+│   │   │   └── HomeScreen.jsx
+│   │   ├── WordCard/
+│   │   │   └── WordCard.jsx
+│   │   ├── ProgressBar/
+│   │   │   └── ProgressBar.jsx
+│   │   └── SummaryScreen/
+│   │       └── SummaryScreen.jsx
+│   ├── data/
+│   │   └── trickWords.json
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+├── index.html
+├── .gitignore
+├── package.json
+├── vite.config.js
+└── README.md
+```
