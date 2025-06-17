@@ -44,6 +44,7 @@ Support children learning to read English by showing tricky words one at a time.
 
 - Vitest
 - React Testing Library
+- jest-dom
 
 **Backend (planned)**
 
