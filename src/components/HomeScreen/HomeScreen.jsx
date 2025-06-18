@@ -6,7 +6,7 @@ export default function HomeScreen({ onStart }) {
   return (
     <div className="home-screen">
       <p>
-        Welcome! This app helps your child practice reading tricky English
+        Welcome! This app helps your child practise reading tricky English
         words.
       </p>
       <button onClick={() => setShowInstructions(!showInstructions)}>

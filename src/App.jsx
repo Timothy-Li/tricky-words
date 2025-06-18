@@ -9,7 +9,7 @@ import SummaryScreen from "./components/SummaryScreen/SummaryScreen";
 
 import trickyWords from "./data/trickyWords.json";
 
-const TOTAL_WORDS = 10;
+const TOTAL_WORDS = 20;
 
 function shuffleArray(array) {
   const arr = [...array];
