@@ -11,6 +11,8 @@ import SummaryScreen from "./components/SummaryScreen/SummaryScreen";
 
 const TOTAL_WORDS = 10;
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 // function shuffleArray(array) {
 //   const arr = [...array];
 //   for (let i = arr.length - 1; i > 0; i--) {
@@ -29,9 +31,7 @@ function App() {
 
   const startGame = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3000/words?count=${TOTAL_WORDS}`
-      );
+      const response = await fetch(`${backendUrl}/words?count=${TOTAL_WORDS}`);
 
       if (!response.ok) {
         throw new Error("Server error");
