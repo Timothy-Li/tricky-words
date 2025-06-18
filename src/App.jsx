@@ -7,18 +7,18 @@ import WordCard from "./components/WordCard/WordCard";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import SummaryScreen from "./components/SummaryScreen/SummaryScreen";
 
-import trickyWords from "./data/trickyWords.json";
+// import trickyWords from "./data/trickyWords.json";
 
-const TOTAL_WORDS = 20;
+const TOTAL_WORDS = 10;
 
-function shuffleArray(array) {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
+// function shuffleArray(array) {
+//   const arr = [...array];
+//   for (let i = arr.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [arr[i], arr[j]] = [arr[j], arr[i]];
+//   }
+//   return arr;
+// }
 
 function App() {
   const [roundInProgress, setRoundInProgress] = useState(false);
@@ -27,12 +27,26 @@ function App() {
   const [answers, setAnswers] = useState([]);
   const [shuffledWords, setShuffledWords] = useState([]);
 
-  const startGame = () => {
-    setShuffledWords(shuffleArray(trickyWords).slice(0, TOTAL_WORDS));
-    setRoundInProgress(true);
-    setCurrentIndex(0);
-    setScore(0);
-    setAnswers([]);
+  const startGame = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/words?count=${TOTAL_WORDS}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Server error");
+      }
+
+      const data = await response.json();
+
+      setShuffledWords(data);
+      setRoundInProgress(true);
+      setCurrentIndex(0);
+      setScore(0);
+      setAnswers([]);
+    } catch (error) {
+      console.error("Failed to fetch words:", error);
+    }
   };
 
   const restartSameWords = () => {
@@ -48,42 +62,42 @@ function App() {
     }
     setAnswers((prev) => [
       ...prev,
-      { word: shuffledWords[currentIndex], correct: isCorrect },
+      { word: shuffledWords[currentIndex].word, correct: isCorrect },
     ]);
 
-    if (currentIndex < TOTAL_WORDS - 1) {
+    if (currentIndex < shuffledWords.length - 1) {
       setCurrentIndex((prev) => prev + 1);
       return;
     }
 
     setRoundInProgress(false);
-    setCurrentIndex(TOTAL_WORDS);
+    setCurrentIndex(shuffledWords.length);
   };
 
   const renderScreen = () => {
     if (!roundInProgress && currentIndex === 0) {
       return <HomeScreen onStart={startGame} />;
     }
-    if (roundInProgress && currentIndex < TOTAL_WORDS) {
+    if (roundInProgress && currentIndex < shuffledWords.length) {
       return (
         <>
           <ProgressBar
             current={currentIndex + 1}
-            total={TOTAL_WORDS}
+            total={shuffledWords.length}
             score={score}
           />
           <WordCard
-            word={shuffledWords[currentIndex]}
+            word={shuffledWords[currentIndex].word}
             onAnswer={handleAnswer}
           />
         </>
       );
     }
-    if (currentIndex === TOTAL_WORDS) {
+    if (currentIndex === shuffledWords.length) {
       return (
         <SummaryScreen
           score={score}
-          total={TOTAL_WORDS}
+          total={shuffledWords.length}
           answers={answers}
           restartSame={restartSameWords}
           restartNew={startGame}
