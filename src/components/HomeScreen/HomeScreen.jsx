@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 
-export default function HomeScreen({ onStart }) {
+export default function HomeScreen({ onStart, childName }) {
   const [showInstructions, setShowInstructions] = useState(false);
 
   return (
     <div className="home-screen">
-      <p>
-        Welcome! This app helps your child practise reading tricky English
-        words.
-      </p>
+      <p>Hi {childName}, press start when you are ready!</p>
       <button onClick={() => setShowInstructions(!showInstructions)}>
         {showInstructions ? "Hide Instructions" : "Show Instructions"}
       </button>
