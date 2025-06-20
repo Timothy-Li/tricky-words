@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 
 import Header from "./components/Header/Header";
@@ -18,7 +18,6 @@ function App() {
     const saved = localStorage.getItem("children");
     return saved ? JSON.parse(saved) : [];
   });
-
   const activeChild = children.find((c) => c.id === activeChildId);
   const [roundInProgress, setRoundInProgress] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,18 +34,13 @@ function App() {
     const updated = [...children, newChild];
     setChildren(updated);
     localStorage.setItem("children", JSON.stringify(updated));
-
-    setActiveChildId(newChild.id);
-    localStorage.setItem("activeChildId", newChild.id);
   };
 
-  // Remove a child by id
   const handleRemoveChild = (id) => {
     const updated = children.filter((child) => child.id !== id);
     setChildren(updated);
     localStorage.setItem("children", JSON.stringify(updated));
 
-    // If removed child is active, clear activeChildId and reset game
     if (id === activeChildId) {
       localStorage.removeItem("activeChildId");
       setActiveChildId(null);
@@ -54,11 +48,11 @@ function App() {
     }
   };
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const startGame = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3000/words?count=${TOTAL_WORDS}`
-      );
+      const response = await fetch(`${backendUrl}/words?count=${TOTAL_WORDS}`);
 
       if (!response.ok) {
         throw new Error("Server error");

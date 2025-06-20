@@ -3,6 +3,7 @@ export default function Header({
   onSwitchUser,
   onGoHome,
   showBackToHome,
+  onShowInfo,
 }) {
   return (
     <header className="app-header">
