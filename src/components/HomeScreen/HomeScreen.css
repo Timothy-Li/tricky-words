@@ -1,0 +1,14 @@
+.start-button {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #a5d6a7;
+}

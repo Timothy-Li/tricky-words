@@ -1,3 +1,5 @@
+import "./WordCard.css";
+
 export default function WordCard({ word, onAnswer, onNavHome }) {
   return (
     <div className="word-card">

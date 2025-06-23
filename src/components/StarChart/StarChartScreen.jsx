@@ -1,5 +1,5 @@
-import StarDisplay from "./StarDisplay";
 import { useState } from "react";
+import StarDisplay from "./StarDisplay";
 
 export default function StarChartScreen({ child, manualUpdateStars }) {
   const [showParentControls, setShowParentControls] = useState(false);
