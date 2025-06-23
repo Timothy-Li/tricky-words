@@ -12,7 +12,19 @@ const allowedOrigins = process.env.CORS_ORIGIN
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      // allow requests with no origin like postman
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        // origin is allowed
+        callback(null, true);
+      } else {
+        // origin not allowed
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST"],
   })
 );
 
