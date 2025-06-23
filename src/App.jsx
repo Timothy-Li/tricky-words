@@ -65,6 +65,18 @@ function App() {
     setStarsGiven(true);
   };
 
+  const handleManualUpdateStars = (childId = activeChildId, starsToAdd) => {
+    const updatedChildren = children.map((child) => {
+      if (child.id === childId) {
+        const newStarCount = Math.max(0, (child.stars || 0) + starsToAdd);
+        return { ...child, stars: newStarCount };
+      }
+      return child;
+    });
+    setChildren(updatedChildren);
+    localStorage.setItem("children", JSON.stringify(updatedChildren));
+  };
+
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const startGame = async () => {
@@ -150,7 +162,12 @@ function App() {
 
   const renderScreen = () => {
     if (isViewingStarChart && activeChild) {
-      return <StarChartScreen child={activeChild} />;
+      return (
+        <StarChartScreen
+          child={activeChild}
+          manualUpdateStars={handleManualUpdateStars}
+        />
+      );
     }
 
     if (!activeChildId) {
