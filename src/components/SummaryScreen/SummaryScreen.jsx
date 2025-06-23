@@ -1,16 +1,34 @@
+import { useEffect } from "react";
+
 export default function SummaryScreen({
   score,
   total,
   answers,
   restartSame,
   restartNew,
+  updateStars,
 }) {
+  const fullMarks = score === total;
+
+  useEffect(() => {
+    if (fullMarks) {
+      updateStars();
+    }
+  }, [fullMarks, updateStars]);
+
   return (
     <div>
       <h2>Summary</h2>
       <div>
-        You scored {score} out of {total}!
+        You scored {score} out of {total}.
       </div>
+      {fullMarks && (
+        <div>
+          Well done, you read all the words correctly, and earned a star! ⭐
+        </div>
+      )}
+      {!fullMarks && <div>Practice any Tricky Words and Try Again!</div>}
+
       <ul
         style={{
           listStyleType: "none",

@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import InfoModal from "../Modals/Modal";
 
-function WelcomeScreen({ children, onAddChild, onSelectChild, onRemoveChild }) {
+export default function WelcomeScreen({
+  children,
+  onAddChild,
+  onSelectChild,
+  onRemoveChild,
+}) {
   const [name, setName] = useState("");
   const [infoOpen, setInfoOpen] = useState(false);
 
@@ -32,6 +37,7 @@ function WelcomeScreen({ children, onAddChild, onSelectChild, onRemoveChild }) {
     const newChild = {
       id: uuidv4(),
       name: trimmedName,
+      stars: 0,
     };
 
     onAddChild(newChild);
@@ -169,5 +175,3 @@ function WelcomeScreen({ children, onAddChild, onSelectChild, onRemoveChild }) {
     </div>
   );
 }
-
-export default WelcomeScreen;

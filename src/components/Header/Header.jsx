@@ -1,9 +1,11 @@
 export default function Header({
   activeChildName,
-  onSwitchUser,
+  onLogOut,
   onGoHome,
   showBackToHome,
-  onShowInfo,
+  onStarChart,
+  showStarChart,
+  isViewingStarChart,
 }) {
   return (
     <header className="app-header">
@@ -13,11 +15,15 @@ export default function Header({
         <div className="user-info">
           <span>👤 {activeChildName}</span>
 
-          {showBackToHome && onGoHome && (
+          {(showBackToHome || showStarChart) && onGoHome && (
             <button onClick={onGoHome}>Home</button>
           )}
 
-          <button onClick={onSwitchUser}>Log Out</button>
+          {!isViewingStarChart && (
+            <button onClick={onStarChart}>Star Chart</button>
+          )}
+
+          <button onClick={onLogOut}>Log Out</button>
         </div>
       )}
     </header>
