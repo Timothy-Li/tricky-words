@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 
 import Header from "./components/Header/Header";
@@ -6,28 +6,49 @@ import HomeScreen from "./components/HomeScreen/HomeScreen";
 import WordCard from "./components/WordCard/WordCard";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import SummaryScreen from "./components/SummaryScreen/SummaryScreen";
-
-// import trickyWords from "./data/trickyWords.json";
+import WelcomeScreen from "./components/WelcomeScreen/WelcomeScreen";
 
 const TOTAL_WORDS = 10;
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
-// function shuffleArray(array) {
-//   const arr = [...array];
-//   for (let i = arr.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [arr[i], arr[j]] = [arr[j], arr[i]];
-//   }
-//   return arr;
-// }
-
 function App() {
+  const [activeChildId, setActiveChildId] = useState(
+    () => localStorage.getItem("activeChildId") || null
+  );
+  const [children, setChildren] = useState(() => {
+    const saved = localStorage.getItem("children");
+    return saved ? JSON.parse(saved) : [];
+  });
+  const activeChild = children.find((c) => c.id === activeChildId);
   const [roundInProgress, setRoundInProgress] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [shuffledWords, setShuffledWords] = useState([]);
+
+  const handleSelectChild = (id) => {
+    setActiveChildId(id);
+    localStorage.setItem("activeChildId", id);
+  };
+
+  const handleAddChild = (newChild) => {
+    const updated = [...children, newChild];
+    setChildren(updated);
+    localStorage.setItem("children", JSON.stringify(updated));
+  };
+
+  const handleRemoveChild = (id) => {
+    const updated = children.filter((child) => child.id !== id);
+    setChildren(updated);
+    localStorage.setItem("children", JSON.stringify(updated));
+
+    if (id === activeChildId) {
+      localStorage.removeItem("activeChildId");
+      setActiveChildId(null);
+      goHome();
+    }
+  };
+
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const startGame = async () => {
     try {
@@ -47,6 +68,14 @@ function App() {
     } catch (error) {
       console.error("Failed to fetch words:", error);
     }
+  };
+
+  const goHome = () => {
+    setRoundInProgress(false);
+    setCurrentIndex(0);
+    setScore(0);
+    setAnswers([]);
+    setShuffledWords([]);
   };
 
   const restartSameWords = () => {
@@ -74,9 +103,45 @@ function App() {
     setCurrentIndex(shuffledWords.length);
   };
 
+  const handleSwitchUser = () => {
+    if (!activeChildId) return;
+
+    localStorage.removeItem("activeChildId");
+    localStorage.removeItem(`progress-${activeChildId}`);
+    localStorage.removeItem(`stars-${activeChildId}`);
+
+    setActiveChildId(null);
+    setRoundInProgress(false);
+    setCurrentIndex(0);
+    setScore(0);
+    setAnswers([]);
+    setShuffledWords([]);
+  };
+
+  const onWelcomeScreen = !activeChildId;
+  const onHomeScreen = !roundInProgress && currentIndex === 0 && activeChildId;
+
+  const showBackToHome = activeChildId && !onWelcomeScreen && !onHomeScreen;
+
   const renderScreen = () => {
+    if (!activeChildId) {
+      return (
+        <WelcomeScreen
+          children={children}
+          onAddChild={handleAddChild}
+          onSelectChild={handleSelectChild}
+          onRemoveChild={handleRemoveChild}
+        />
+      );
+    }
+
     if (!roundInProgress && currentIndex === 0) {
-      return <HomeScreen onStart={startGame} />;
+      return (
+        <HomeScreen
+          onStart={startGame}
+          childName={activeChild?.name || "there"}
+        />
+      );
     }
     if (roundInProgress && currentIndex < shuffledWords.length) {
       return (
@@ -106,18 +171,14 @@ function App() {
     }
   };
 
-  // to check scores are updating properly
-  // useEffect(() => {
-  //   console.log("Score updated:", score);
-  // }, [score]);
-
-  // useEffect(() => {
-  //   console.log("Answers", answers);
-  // }, [answers]);
-
   return (
     <>
-      <Header />
+      <Header
+        activeChildName={activeChild?.name || null}
+        onSwitchUser={handleSwitchUser}
+        onGoHome={goHome}
+        showBackToHome={showBackToHome}
+      />
       {renderScreen()}
     </>
   );

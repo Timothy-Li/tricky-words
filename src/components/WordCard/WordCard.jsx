@@ -1,4 +1,4 @@
-export default function WordCard({ word, onAnswer }) {
+export default function WordCard({ word, onAnswer, onNavHome }) {
   return (
     <div className="word-card">
       <h2 className="word-text">{word}</h2>
