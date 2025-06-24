@@ -52,7 +52,7 @@ export default function SummaryScreen({
         ))}
       </ul>
       <button onClick={restartSame}>Try Again</button>
-      <button onClick={restartNew}>New Round</button>
+      <button onClick={restartNew}>New Words</button>
     </div>
   );
 }

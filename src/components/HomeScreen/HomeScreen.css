@@ -12,3 +12,11 @@
 .start-button:hover {
   background-color: #a5d6a7;
 }
+
+.home-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

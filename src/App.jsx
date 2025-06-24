@@ -9,8 +9,6 @@ import SummaryScreen from "./components/SummaryScreen/SummaryScreen";
 import WelcomeScreen from "./components/WelcomeScreen/WelcomeScreen";
 import StarChartScreen from "./components/StarChart/StarChartScreen";
 
-const TOTAL_WORDS = 10;
-
 function App() {
   const [activeChildId, setActiveChildId] = useState(
     () => localStorage.getItem("activeChildId") || null
@@ -27,6 +25,7 @@ function App() {
   const [shuffledWords, setShuffledWords] = useState([]);
   const [isViewingStarChart, setIsViewingStarChart] = useState(false);
   const [starsGiven, setStarsGiven] = useState(false);
+  const [totalWords, setTotalWords] = useState(10);
 
   const handleSelectChild = (id) => {
     setActiveChildId(id);
@@ -83,7 +82,7 @@ function App() {
     setStarsGiven(false);
 
     try {
-      const response = await fetch(`${backendUrl}/words?count=${TOTAL_WORDS}`);
+      const response = await fetch(`${backendUrl}/words?count=${totalWords}`);
 
       if (!response.ok) {
         throw new Error("Server error");
@@ -186,6 +185,8 @@ function App() {
         <HomeScreen
           onStart={startGame}
           childName={activeChild?.name || "there"}
+          totalWords={totalWords}
+          setTotalWords={setTotalWords}
         />
       );
     }
