@@ -44,7 +44,8 @@
   background-color: #b3dafc;
 }
 
-.right-button:active {
+.right-button:active,
+.right-button.key-pressed {
   transform: scale(0.98);
 }
 
@@ -57,6 +58,7 @@
   background-color: #e1bee7;
 }
 
-.wrong-button:active {
+.wrong-button:active,
+.wrong-button.key-pressed {
   transform: scale(0.98);
 }
