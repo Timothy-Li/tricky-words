@@ -36,19 +36,27 @@
 }
 
 .right-button {
-  background-color: #d6eaff; /* soft mint-teal */
+  background-color: #d6eaff;
   color: #1565c0;
 }
 
 .right-button:hover {
-  background-color: #b3dafc; /* slightly darker on hover */
+  background-color: #b3dafc;
+}
+
+.right-button:active {
+  transform: scale(0.98);
 }
 
 .wrong-button {
-  background-color: #ffdbac; /* soft sand */
-  color: #ac7102;
+  background-color: #f3e5f5;
+  color: #835298;
 }
 
 .wrong-button:hover {
-  background-color: #f4c98e; /* slightly darker sand */
+  background-color: #e1bee7;
+}
+
+.wrong-button:active {
+  transform: scale(0.98);
 }

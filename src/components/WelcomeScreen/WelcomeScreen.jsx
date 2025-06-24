@@ -46,7 +46,7 @@ export default function WelcomeScreen({
 
   return (
     <div className="welcome-screen">
-      <h2>Welcome to Tricky Words</h2>
+      <h2>Welcome to My Tricky Words</h2>
       <button onClick={toggleInfo}>How It Works</button>
       {children.length > 0 && (
         <div>

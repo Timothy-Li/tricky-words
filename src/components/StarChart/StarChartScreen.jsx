@@ -13,8 +13,8 @@ export default function StarChartScreen({ child, manualUpdateStars }) {
         style={{ padding: "4px", marginTop: "5px" }}
       >
         {showParentControls
-          ? "Hide Parent Controls ▲"
-          : "Show Parent Controls ▼"}
+          ? "Hide Parental Controls"
+          : "Show Parental Controls"}
       </button>
 
       {showParentControls && (

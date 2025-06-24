@@ -227,6 +227,7 @@ function App() {
         showBackToHome={isViewingStarChart || showBackToHome}
         onStarChart={handleShowStarChart}
         isViewingStarChart={isViewingStarChart}
+        isGameActive={roundInProgress}
       />
       {renderScreen()}
     </>
