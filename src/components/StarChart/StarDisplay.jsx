@@ -18,7 +18,7 @@ export default function StarDisplay({ stars }) {
           key={starIndex}
           style={{
             color: isFilled ? "gold" : "lightgray",
-            fontSize: "24px",
+            fontSize: "3rem",
             marginRight: "4px",
           }}
         >
