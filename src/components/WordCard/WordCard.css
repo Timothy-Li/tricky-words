@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 60vh;
+  height: 100vh;
   width: 100%;
+  background-color: #f6f5f1;
 }
 
 .word-text {
@@ -16,12 +16,13 @@
   border: 4px solid #ccc;
   border-radius: 12px;
   padding: 0.5rem 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  background-color: white;
 }
 
 .buttons {
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .right-button,
@@ -33,6 +34,7 @@
   cursor: pointer;
   user-select: none;
   transition: background-color 0.3s ease;
+  width: 160px;
 }
 
 .right-button {
@@ -58,7 +60,7 @@
   background-color: #e1bee7;
 }
 
-.wrong-button:active,
+.wrong-button:active.buttons,
 .wrong-button.key-pressed {
   transform: scale(0.98);
 }

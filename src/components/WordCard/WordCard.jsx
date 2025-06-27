@@ -7,19 +7,19 @@ export default function WordCard({ word, onAnswer }) {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === "ArrowRight") {
+      if (event.key === "ArrowLeft") {
         wrongBtnRef.current?.classList.add("key-pressed");
         onAnswer(false);
-      } else if (event.key === "ArrowLeft") {
+      } else if (event.key === "ArrowRight") {
         rightBtnRef.current?.classList.add("key-pressed");
         onAnswer(true);
       }
     };
 
     const handleKeyUp = (event) => {
-      if (event.key === "ArrowRight") {
+      if (event.key === "ArrowLeft") {
         wrongBtnRef.current?.classList.remove("key-pressed");
-      } else if (event.key === "ArrowLeft") {
+      } else if (event.key === "ArrowRight") {
         rightBtnRef.current?.classList.remove("key-pressed");
       }
     };
@@ -38,18 +38,18 @@ export default function WordCard({ word, onAnswer }) {
       <h2 className="word-text">{word}</h2>
       <div className="buttons">
         <button
-          ref={rightBtnRef}
-          className="right-button"
-          onClick={() => onAnswer(true)}
-        >
-          Right
-        </button>
-        <button
           ref={wrongBtnRef}
           className="wrong-button"
           onClick={() => onAnswer(false)}
         >
           Wrong
+        </button>
+        <button
+          ref={rightBtnRef}
+          className="right-button"
+          onClick={() => onAnswer(true)}
+        >
+          Right
         </button>
       </div>
     </div>

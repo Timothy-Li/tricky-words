@@ -4,11 +4,15 @@ import "./StarChartScreen.css";
 
 export default function StarChartScreen({ child, manualUpdateStars }) {
   const [showParentControls, setShowParentControls] = useState(false);
+  const totalStars = 100;
 
   return (
     <div className="star-chart-container">
       <div className="star-chart-header">
-        <h2 className="star-chart-title">{child.name}'s Star Chart</h2>
+        <div className="star-tracker">
+          <h2>{child.name}'s Star Chart</h2>
+          <div>Stars Collected: {child.stars || 0}</div>
+        </div>
 
         <div className="parent-controls-wrapper">
           <button
@@ -22,16 +26,21 @@ export default function StarChartScreen({ child, manualUpdateStars }) {
 
           {showParentControls && (
             <div className="parent-controls-panel">
-              <button onClick={() => manualUpdateStars(child.id, 1)}>
-                ➕ Add Star
+              <button
+                className="control-button"
+                onClick={() => manualUpdateStars(child.id, 1)}
+              >
+                Add Star ➕
               </button>
               <button
+                className="control-button"
                 onClick={() => manualUpdateStars(child.id, -1)}
                 disabled={child.stars === 0}
               >
-                ➖ Remove Star
+                Remove Star ➖
               </button>
               <button
+                className="control-button"
                 onClick={() => {
                   const confirmReset = window.confirm(
                     `Are you sure you want to reset all stars for ${child.name}?`
@@ -42,7 +51,7 @@ export default function StarChartScreen({ child, manualUpdateStars }) {
                 }}
                 disabled={child.stars === 0}
               >
-                🔄 Reset Stars
+                Reset Stars
               </button>
             </div>
           )}

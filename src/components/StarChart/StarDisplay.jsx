@@ -1,3 +1,5 @@
+import "./StarDisplay.css";
+
 export default function StarDisplay({ stars }) {
   const totalStars = 100;
   const starsPerRow = 10;
@@ -16,11 +18,7 @@ export default function StarDisplay({ stars }) {
       rowStars.push(
         <span
           key={starIndex}
-          style={{
-            color: isFilled ? "gold" : "lightgray",
-            fontSize: "3rem",
-            marginRight: "4px",
-          }}
+          className={`star ${isFilled ? "filled" : "empty"}`}
         >
           ★
         </span>
@@ -28,24 +26,12 @@ export default function StarDisplay({ stars }) {
     }
 
     rows.push(
-      <div
-        key={i}
-        style={{ display: "flex", alignItems: "center", marginBottom: "4px" }}
-      >
+      <div key={i} className="star-row">
         {rowStars}
-        <span
-          style={{
-            marginLeft: "8px",
-            fontSize: "14px",
-            color: isRowFull ? "gold" : "gray",
-            fontWeight: isRowFull ? "bold" : "normal",
-          }}
-        >
-          {rowEnd}
-        </span>
+        <span className={`row-label ${isRowFull ? "full" : ""}`}>{rowEnd}</span>
       </div>
     );
   }
 
-  return <div>{rows}</div>;
+  return <div className="star-display">{rows}</div>;
 }

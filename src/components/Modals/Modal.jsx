@@ -1,45 +1,33 @@
-export default function Modal({ isOpen, onClose, title, children }) {
-  if (!isOpen) return null;
+import "./Modal.css";
 
+export default function Modal({
+  isOpen,
+  onClose,
+  title,
+  children,
+  className = "",
+}) {
   if (!isOpen) return null;
 
   return (
     <>
-      {/* Backdrop overlay */}
-      <div
-        onClick={onClose}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // semi-transparent black
-          zIndex: 1000,
-        }}
-      />
+      <div className="modal-backdrop" onClick={onClose} />
 
-      {/* Modal content */}
       <div
-        style={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: "white",
-          padding: "1.5rem",
-          borderRadius: "8px",
-          zIndex: 1001,
-          maxWidth: "90vw",
-          maxHeight: "90vh",
-          overflowY: "auto",
-        }}
+        className={`modal-content ${className}`}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
       >
-        <h2>{title}</h2>
-        <button onClick={onClose} style={{ float: "right" }}>
-          Close
+        <button
+          className="modal-close-button"
+          onClick={onClose}
+          aria-label="Close modal"
+        >
+          ×
         </button>
-        {children}
+        <h2 id="modal-title">{title}</h2>
+        <div className="modal-body">{children}</div>
       </div>
     </>
   );

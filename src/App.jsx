@@ -30,6 +30,7 @@ function App() {
   const handleSelectChild = (id) => {
     setActiveChildId(id);
     localStorage.setItem("activeChildId", id);
+    setTotalWords(10);
   };
 
   const handleAddChild = (newChild) => {
@@ -208,6 +209,7 @@ function App() {
     if (currentIndex === shuffledWords.length) {
       return (
         <SummaryScreen
+          child={activeChild}
           score={score}
           total={shuffledWords.length}
           answers={answers}

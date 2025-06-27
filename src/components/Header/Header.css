@@ -12,29 +12,46 @@
   gap: 1rem;
 }
 
+.guide-button,
 .home-button,
 .star-chart-button,
 .log-out-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  height: 55px;
   background-color: #f0e6d6;
   color: #8b7a65;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   padding: 1rem 1rem;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none;
 }
 
+.guide-button:hover,
 .home-button:hover,
 .star-chart-button:hover,
 .log-out-button:hover {
   background-color: #e0d4c0;
 }
 
+.guide-button:active,
 .home-button:active,
 .star-chart-button:active,
 .log-out-button:active {
   transform: scale(0.98);
   box-shadow: none;
+}
+
+.guide-button:focus,
+.home-button:focus,
+.star-chart-button:focus,
+.log-out-button:focus {
+  outline: 2px solid #8b7a65;
+  outline-offset: 2px;
 }

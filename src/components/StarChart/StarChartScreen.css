@@ -2,6 +2,9 @@
   padding: 2rem;
   box-sizing: border-box;
   min-height: 100vh;
+  background-color: #f6f5f1;
+
+  color: #3e4b34;
 }
 
 .star-chart-header {
@@ -13,8 +16,10 @@
 }
 
 .star-chart-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  color: #3e4b34;
   margin: 0 auto;
+  text-align: center;
 }
 
 .parent-controls-wrapper {
@@ -25,24 +30,81 @@
 }
 
 .parent-controls-toggle {
-  padding: 6px 12px;
+  background-color: #a5b18f;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease;
   margin-bottom: 0.5rem;
 }
 
+.parent-controls-toggle:hover {
+  background-color: #8e9f75;
+}
+
+.parent-controls-toggle:active {
+  transform: scale(0.98);
+}
+
 .parent-controls-panel {
-  background-color: #f0f0f0;
+  background-color: #f2ede1;
   padding: 1rem;
-  border-radius: 8px;
+  border: 1px solid #dcd7c9;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
   align-items: flex-end;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .star-chart-content {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+}
+
+.control-button {
+  background-color: #ced6c1;
+  color: #495d41;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(165, 177, 143, 0.35);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.15s ease;
+  user-select: none;
+}
+
+.control-button:hover:not(:disabled) {
+  background-color: #b7c2a6;
+  box-shadow: 0 5px 10px rgba(142, 159, 117, 0.45);
+}
+
+.control-button:active:not(:disabled) {
+  background-color: #7a8b62;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+.control-button:disabled {
+  background-color: #d3d6cc;
+  color: #9ea39c;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.star-tracker {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #3e4b34;
+  text-align: center;
 }
