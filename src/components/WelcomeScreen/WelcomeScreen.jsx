@@ -20,6 +20,14 @@ export default function WelcomeScreen({
     const trimmedName = name.trim();
     if (!trimmedName) return;
 
+    const isValidName = /^[a-zA-Z\s'-]{1,20}$/.test(trimmedName);
+    if (!isValidName) {
+      alert(
+        "That name’s a bit tricky! Please use letters, spaces, dashes, and apostrophes only. Up to 20 characters"
+      );
+      return;
+    }
+
     const nameExists = children.some(
       (child) => child.name.toLowerCase() === trimmedName.toLowerCase()
     );
