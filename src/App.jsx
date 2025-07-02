@@ -84,7 +84,9 @@ function App() {
     setStarsGiven(false);
 
     try {
-      const response = await fetch(`${backendUrl}/words?count=${totalWords}`);
+      const response = await fetch(
+        `${backendUrl}/words?count=${totalWords}&level=${level}`
+      );
 
       if (!response.ok) {
         throw new Error("Server error");
