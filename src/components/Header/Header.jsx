@@ -47,42 +47,52 @@ export default function Header({
         )}
       </div>
 
-      <InfoModal isOpen={infoOpen} onClose={toggleInfo} title="How It Works">
-        <h4>Start</h4>
-        <ul>
-          <li>Select or Add a child.</li>
-          <li>Choose the number of words.</li>
-          <li>Press Start to begin.</li>
-        </ul>
+      <InfoModal isOpen={infoOpen} onClose={toggleInfo} title="Guide">
+        <div className="info-modal-content">
+          <section>
+            <h4>Welcome</h4>
+            <ul>
+              <li>Select a Reader or Add a New Reader</li>
+            </ul>
+          </section>
 
-        <h4>During</h4>
-        <ul>
-          <li>Child reads the word aloud.</li>
-          <li>
-            Parents click or press the arrow keys: use the Left Arrow (←) for
-            Wrong, and the Right Arrow (→) for Right.
-          </li>
-        </ul>
+          <section>
+            <h4>Home</h4>
+            <ul>
+              <li>Choose desired number of words (5-30)</li>
+              <li>Select a level (1-4)</li>
+              <li>Press Start to begin</li>
+            </ul>
+          </section>
 
-        <h4>After</h4>
-        <ul>
-          <li>See the score and review tricky words.</li>
-          <li>Try Again with the Same words or New ones.</li>
-          <li>Earn stars for perfect rounds!</li>
-        </ul>
+          <section>
+            <h4>During</h4>
+            <ul>
+              <li>Child reads the word aloud</li>
+              <li>
+                Observer clicks or presses the arrow keys: (←) for Wrong, (→)
+                for Right
+              </li>
+            </ul>
+          </section>
 
-        <h4>Star Chart & Controls</h4>
-        <ul>
-          <li>Track progress with stars.</li>
-          <li>Parents can add, remove, or reset stars.</li>
-        </ul>
+          <section>
+            <h4>Summary</h4>
+            <ul>
+              <li>See the score for the round and review tricky words</li>
+              <li>Try Again with the Same words or New ones</li>
+              <li>Earn stars for perfect rounds!</li>
+            </ul>
+          </section>
 
-        <h4>Tips</h4>
-        <ul>
-          <li>Practice often.</li>
-          <li>Let your child read without help first.</li>
-          <li>Celebrate their progress!</li>
-        </ul>
+          <section>
+            <h4>Star Chart & Controls</h4>
+            <ul>
+              <li>Track progress with stars</li>
+              <li>Parents can add, remove, or reset stars</li>
+            </ul>
+          </section>
+        </div>
       </InfoModal>
     </header>
   );

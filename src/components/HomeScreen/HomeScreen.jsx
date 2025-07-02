@@ -128,7 +128,7 @@ export default function HomeScreen({
   return (
     <div className="home-screen">
       <h2>Home</h2>
-      <p style={{ marginBottom: "40px" }}>
+      <p style={{ marginBottom: "40px", fontStyle: "italic" }}>
         Adjust the settings and click Start
       </p>
 
