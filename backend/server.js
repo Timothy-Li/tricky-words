@@ -55,8 +55,15 @@ app.get("/", (req, res) => {
 
 app.get("/words", (req, res) => {
   const count = Number(req.query.count) || 10;
+  const level = Number(req.query.level);
 
-  const shuffled = shuffleArray(words);
+  let filteredWords = words;
+
+  if (!isNaN(level)) {
+    filteredWords = words.filter((w) => w.level === level);
+  }
+
+  const shuffled = shuffleArray(filteredWords);
   const selected = shuffled.slice(0, count);
 
   res.json(selected);
