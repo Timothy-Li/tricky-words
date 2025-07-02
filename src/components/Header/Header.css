@@ -33,11 +33,11 @@
   outline: none;
 }
 
-.guide-button:active,
-.home-button:active,
-.star-chart-button:active,
-.log-out-button:active {
-  color: #999999;
+.guide-button:hover,
+.home-button:hover,
+.star-chart-button:hover,
+.log-out-button:hover {
+  color: rgb(93, 178, 182);
 }
 
 .main-title {

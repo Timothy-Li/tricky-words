@@ -10,7 +10,7 @@
 }
 
 .star {
-  font-size: 5rem;
+  font-size: 4rem;
   margin-right: 10px;
   transition: transform 0.2s ease, color 0.3s ease;
 }
@@ -30,18 +30,18 @@
 
 .row-label {
   display: inline-block;
-  width: 40px;
+  width: 35px;
   text-align: right;
   margin-left: 10px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #777777;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #a9a9a8;
   font-style: italic;
 }
 
 .row-label.full {
-  color: #ffcc00;
-  font-weight: 800;
+  color: #eabd06;
+  font-weight: 600;
 }
 
 @keyframes pop {

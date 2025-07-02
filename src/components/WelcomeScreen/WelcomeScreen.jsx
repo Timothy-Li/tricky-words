@@ -83,7 +83,7 @@ export default function WelcomeScreen({
                     onClick={() => {
                       if (
                         window.confirm(
-                          `Are you sure you want to remove ${child.name}'s profile?`
+                          `Are you sure you want to delete ${child.name}'s profile? Click OK to confirm.`
                         )
                       ) {
                         onRemoveChild(child.id);

@@ -10,7 +10,6 @@
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  margin-bottom: 2rem;
 }
 
 .parent-controls-wrapper {
@@ -30,11 +29,12 @@
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  margin-bottom: 0.5rem;
+
+  margin-top: 10px;
 }
 
 .parent-controls-toggle:hover {
-  background-color: #8e9f75;
+  background-color: #97a582;
 }
 
 .parent-controls-toggle:active {
@@ -42,15 +42,14 @@
 }
 
 .parent-controls-panel {
-  background-color: #f2ede1;
+  background-color: transparent;
   padding: 1rem;
-  border: 1px solid #dcd7c9;
+
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   align-items: flex-end;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .star-chart-content {
@@ -60,27 +59,24 @@
 }
 
 .control-button {
-  background-color: #ced6c1;
-  color: #495d41;
+  background-color: #d1d7c6;
+  color: #566b4e;
   font-weight: 600;
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 3px 6px rgba(165, 177, 143, 0.35);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease,
-    transform 0.15s ease;
+  width: 180px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   user-select: none;
 }
 
 .control-button:hover:not(:disabled) {
   background-color: #b7c2a6;
-  box-shadow: 0 5px 10px rgba(142, 159, 117, 0.45);
 }
 
 .control-button:active:not(:disabled) {
-  background-color: #7a8b62;
   box-shadow: none;
   transform: scale(0.98);
 }
@@ -98,4 +94,15 @@
   font-weight: 600;
   color: #777777;
   text-align: center;
+}
+
+.star-chart-header h2 {
+  margin: 0;
+}
+
+.stars-collected {
+  font-style: italic;
+  font-size: 28px;
+  color: rgb(93, 178, 182);
+  margin-top: 10px;
 }

@@ -10,7 +10,7 @@ export default function StarChartScreen({ child, manualUpdateStars }) {
       <div className="star-chart-header">
         <div className="star-tracker">
           <h2>{child.name}'s Star Chart</h2>
-          <div style={{ fontStyle: "italic" }}>
+          <div className="stars-collected">
             Stars Collected: {child.stars || 0}
           </div>
         </div>
@@ -31,20 +31,20 @@ export default function StarChartScreen({ child, manualUpdateStars }) {
                 className="control-button"
                 onClick={() => manualUpdateStars(child.id, 1)}
               >
-                Add Star ➕
+                Add Star
               </button>
               <button
                 className="control-button"
                 onClick={() => manualUpdateStars(child.id, -1)}
                 disabled={child.stars === 0}
               >
-                Remove Star ➖
+                Remove Star
               </button>
               <button
                 className="control-button"
                 onClick={() => {
                   const confirmReset = window.confirm(
-                    `Are you sure you want to reset all stars for ${child.name}?`
+                    `Would you like to reset all stars for ${child.name} Click OK to confirm.`
                   );
                   if (confirmReset) {
                     manualUpdateStars(child.id, -child.stars);

@@ -129,7 +129,7 @@ export default function HomeScreen({
     <div className="home-screen">
       <h2>Home</h2>
       <p style={{ marginBottom: "40px", fontStyle: "italic" }}>
-        Adjust the settings and click Start
+        Adjust the settings then click Start to begin
       </p>
 
       <div className="slider-block">
