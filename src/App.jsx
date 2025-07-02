@@ -26,6 +26,7 @@ function App() {
   const [isViewingStarChart, setIsViewingStarChart] = useState(false);
   const [starsGiven, setStarsGiven] = useState(false);
   const [totalWords, setTotalWords] = useState(10);
+  const [level, setLevel] = useState(1);
 
   const handleSelectChild = (id) => {
     setActiveChildId(id);
@@ -188,6 +189,8 @@ function App() {
           childName={activeChild?.name || "there"}
           totalWords={totalWords}
           setTotalWords={setTotalWords}
+          level={level}
+          setLevel={setLevel}
         />
       );
     }
