@@ -34,23 +34,22 @@ export default function SummaryScreen({
       ) : (
         <div>Practice any Tricky Words and Try Again!</div>
       )}
-
-      {correctAnswers.length > 0 && (
+      {incorrectAnswers.length > 0 && (
         <>
-          <h3 className="correct-title">Correct Words</h3>
-          <ul className="correct-answers">
-            {correctAnswers.map((answer, index) => (
+          <h3 className="incorrect-title">Tricky Words</h3>
+          <ul className="incorrect-answers">
+            {incorrectAnswers.map((answer, index) => (
               <li key={index}>{answer.word}</li>
             ))}
           </ul>
         </>
       )}
 
-      {incorrectAnswers.length > 0 && (
+      {correctAnswers.length > 0 && (
         <>
-          <h3 className="incorrect-title">Tricky Words</h3>
-          <ul className="incorrect-answers">
-            {incorrectAnswers.map((answer, index) => (
+          <h3 className="correct-title">Correct Words</h3>
+          <ul className="correct-answers">
+            {correctAnswers.map((answer, index) => (
               <li key={index}>{answer.word}</li>
             ))}
           </ul>
