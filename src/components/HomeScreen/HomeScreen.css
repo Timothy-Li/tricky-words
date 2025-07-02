@@ -30,7 +30,7 @@
 
 .slider-block {
   width: 600px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -140,4 +140,8 @@ h2 {
   margin-top: 30px;
   margin-bottom: 8px;
   font-size: 38px;
+}
+
+.level-description {
+  font-size: 18px;
 }

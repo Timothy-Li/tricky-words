@@ -31,6 +31,13 @@ export default function HomeScreen({
     }
   };
 
+  const levelDescription = {
+    1: "Nursery (ages under 4): The alphabet",
+    2: "Reception (ages 4-5): Simple, short words",
+    3: "KS1 (ages 5-7): Words with moderate challenge",
+    4: "KS2 (ages 7-11): Trickiest words for advanced readers",
+  };
+
   return (
     <div className="home-screen">
       <h2>Home</h2>
@@ -68,7 +75,7 @@ export default function HomeScreen({
         </div>
       </div>
 
-      <div className="slider-block">
+      <div className="slider-block" style={{ marginBottom: "10px" }}>
         <label className="slider-label">
           Level <span className="number-display">{level}</span>
         </label>
@@ -91,11 +98,12 @@ export default function HomeScreen({
           </div>
         </div>
       </div>
+      <div className="level-description">{levelDescription[level]}</div>
 
       <button
         onClick={onStart}
         className="start-button"
-        style={{ marginTop: "40px" }}
+        style={{ marginTop: "60px" }}
       >
         Start
       </button>
