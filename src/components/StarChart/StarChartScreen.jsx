@@ -4,14 +4,15 @@ import "./StarChartScreen.css";
 
 export default function StarChartScreen({ child, manualUpdateStars }) {
   const [showParentControls, setShowParentControls] = useState(false);
-  const totalStars = 100;
 
   return (
     <div className="star-chart-container">
       <div className="star-chart-header">
         <div className="star-tracker">
           <h2>{child.name}'s Star Chart</h2>
-          <div>Stars Collected: {child.stars || 0}</div>
+          <div style={{ fontStyle: "italic" }}>
+            Stars Collected: {child.stars || 0}
+          </div>
         </div>
 
         <div className="parent-controls-wrapper">

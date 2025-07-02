@@ -5,64 +5,108 @@
   padding: 3rem 1rem;
   background-color: #f6f5f1;
   min-height: 100vh;
-  color: #3e4b34;
 }
 
 .welcome-screen h2 {
-  color: #3e4b34;
+  color: #7a7a7a;
   margin-bottom: 2rem;
   font-size: 2.2rem;
   text-align: center;
 }
 
 .welcome-screen h3 {
-  color: #3e4b34;
-  margin-bottom: 1.2rem;
+  color: #777777;
+  margin-bottom: 2rem;
   font-size: 1.6rem;
   text-align: center;
 }
 
 .child-list {
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
   padding: 0;
   margin: 1rem 0 3rem 0;
   width: 100%;
-  max-width: 450px;
+  max-width: 800px;
+  list-style: none;
+  justify-items: center;
+  justify-content: center;
 }
 
 .child-item {
+  width: 100%;
+  max-width: 240px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  background-color: #f2ede1;
-  border: 1px solid #dcd7c9;
+  background-color: #ffffff;
+
   border-radius: 12px;
-  margin-bottom: 1rem;
-  padding: 0.8rem 1.2rem;
+  margin: 0;
+  padding: 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s;
+  box-sizing: border-box;
 }
 
-.child-item:hover {
-  transform: scale(1.02);
+.child-icon-button {
+  width: 120px;
+  height: 120px;
+  background-color: #deb8cf;
+  color: white;
+  font-size: 5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s, background-color 0.2s;
+  margin-bottom: 1rem;
 }
 
-.child-button {
+.child-icon-button:hover {
+  background-color: #db9bc2;
+}
+
+.child-icon-button:active {
+  transform: scale(0.98);
+}
+
+.child-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.child-name-button {
+  font-size: 1.4rem;
+  color: #95748c;
+  font-weight: bold;
+  text-align: center;
   background-color: transparent;
   border: none;
-  color: #3e4b34;
-  font-size: 1.2rem;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
 }
 
-.child-button:hover {
-  text-decoration: underline;
+.child-name-button:hover {
+  color: #db9bc2;
+}
+
+.child-name-button:active {
+  transform: scale(0.98);
 }
 
 .remove-button {
   background-color: transparent;
   border: none;
-  color: #8b5e3c;
+  color: #777777;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -84,7 +128,7 @@ form label {
   flex-direction: column;
   font-size: 1.1rem;
   margin-bottom: 1.2rem;
-  color: #3e4b34;
+  color: #777777;
   width: 100%;
 }
 

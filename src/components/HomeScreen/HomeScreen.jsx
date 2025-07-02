@@ -17,7 +17,7 @@ export default function HomeScreen({ onStart, totalWords, setTotalWords }) {
     <div className="home-screen">
       <h2>Home</h2>
       <p style={{ marginBottom: "40px" }}>
-        Adjust the settings and press Start when ready
+        Adjust the settings and click Start
       </p>
       <div>
         <label>

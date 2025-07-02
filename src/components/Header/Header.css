@@ -55,3 +55,7 @@
   outline: 2px solid #8b7a65;
   outline-offset: 2px;
 }
+
+.main-title {
+  color: rgb(93, 178, 182);
+}

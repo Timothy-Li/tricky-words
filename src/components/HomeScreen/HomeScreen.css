@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #f6f5f1;
   min-height: 100vh;
-  color: #3e4b34;
+  color: #777777;
   font-size: 22px;
 }
 
@@ -96,6 +96,10 @@ input[type="range"]::-moz-range-thumb:hover {
 }
 
 .decrement-button:active,
-.increment-buttonactive {
+.increment-button:active {
   transform: scale(0.96);
+}
+
+h2 {
+  margin-top: 70px;
 }

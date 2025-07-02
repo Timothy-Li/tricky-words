@@ -51,34 +51,48 @@ export default function WelcomeScreen({
 
   return (
     <div className="welcome-screen">
-      <h2>"Welcome Message"</h2>
+      <h3
+        style={{
+          fontStyle: "italic",
+        }}
+      >
+        Welcome! Let’s make tricky words easier through practice.
+      </h3>
 
       {children.length > 0 && (
         <div>
-          <h3>Who is Reading Today?</h3>
+          <h3>Who is Reading?</h3>
           <ul className="child-list">
             {children.map((child) => (
               <li key={child.id} className="child-item">
                 <button
-                  className="child-button"
+                  className="child-icon-button"
                   onClick={() => onSelectChild(child.id)}
                 >
-                  {child.name}
+                  {child.name.charAt(0).toUpperCase()}
                 </button>
-                <button
-                  className="remove-button"
-                  onClick={() => {
-                    if (
-                      window.confirm(
-                        `Are you sure you want to remove ${child.name}'s profile?`
-                      )
-                    ) {
-                      onRemoveChild(child.id);
-                    }
-                  }}
-                >
-                  Remove
-                </button>
+                <div className="child-info">
+                  <button
+                    className="child-name-button"
+                    onClick={() => onSelectChild(child.id)}
+                  >
+                    {child.name}
+                  </button>
+                  <button
+                    className="remove-button"
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          `Are you sure you want to remove ${child.name}'s profile?`
+                        )
+                      ) {
+                        onRemoveChild(child.id);
+                      }
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
               </li>
             ))}
           </ul>

@@ -1,7 +1,7 @@
 .summary-screen {
   padding: 1rem;
   margin: 0 auto;
-  color: #606e55;
+  color: #777777;
   background-color: #f6f5f1;
   min-height: 100vh;
   text-align: center;
@@ -91,7 +91,7 @@
 
 .summary-retry-label {
   font-size: 1.3rem;
-  color: #3e4b34;
+  color: #777777;
   font-weight: 600;
   margin: 0;
   display: flex;
