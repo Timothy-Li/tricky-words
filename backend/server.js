@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import fs from "fs";
 
 dotenv.config();
 const app = express();
@@ -30,39 +31,14 @@ app.use(
 
 app.use(express.json());
 
-const words = [
-  { word: "is", correct: null },
-  { word: "I", correct: null },
-  { word: "the", correct: null },
-  { word: "put", correct: null },
-  { word: "pull", correct: null },
-  { word: "full", correct: null },
-  { word: "as", correct: null },
-  { word: "and", correct: null },
-  { word: "has", correct: null },
-  { word: "his", correct: null },
-  { word: "her", correct: null },
-  { word: "go", correct: null },
-  { word: "no", correct: null },
-  { word: "to", correct: null },
-  { word: "into", correct: null },
-  { word: "she", correct: null },
-  { word: "push", correct: null },
-  { word: "he", correct: null },
-  { word: "of", correct: null },
-  { word: "we", correct: null },
-  { word: "me", correct: null },
-  { word: "be", correct: null },
-  { word: "was", correct: null },
-  { word: "you", correct: null },
-  { word: "they", correct: null },
-  { word: "my", correct: null },
-  { word: "by", correct: null },
-  { word: "all", correct: null },
-  { word: "are", correct: null },
-  { word: "sure", correct: null },
-  { word: "pure", correct: null },
-];
+let words = [];
+try {
+  const wordsData = fs.readFileSync("./words.json", "utf-8");
+  words = JSON.parse(wordsData);
+} catch (error) {
+  console.error("Failed to read words.json:", error);
+  process.exit(1);
+}
 
 function shuffleArray(array) {
   const arr = [...array];
@@ -79,8 +55,15 @@ app.get("/", (req, res) => {
 
 app.get("/words", (req, res) => {
   const count = Number(req.query.count) || 10;
+  const level = Number(req.query.level);
 
-  const shuffled = shuffleArray(words);
+  let filteredWords = words;
+
+  if (!isNaN(level)) {
+    filteredWords = words.filter((w) => w.level === level);
+  }
+
+  const shuffled = shuffleArray(filteredWords);
   const selected = shuffled.slice(0, count);
 
   res.json(selected);

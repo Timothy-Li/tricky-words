@@ -1,0 +1,56 @@
+.star-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  font-size: 4rem;
+  margin-right: 10px;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.star.filled {
+  color: #eabd06;
+  animation: pop 0.3s ease;
+}
+
+.star.empty {
+  color: #e4e2de;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.row-label {
+  display: inline-block;
+  width: 35px;
+  text-align: right;
+  margin-left: 10px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #a9a9a8;
+  font-style: italic;
+}
+
+.row-label.full {
+  color: #eabd06;
+  font-weight: 600;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

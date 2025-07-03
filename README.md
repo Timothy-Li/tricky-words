@@ -1,35 +1,32 @@
 # Tricky Words App
 
-Support children learning to read English by showing tricky words one at a time. A parent listens and clicks “Right” or “Wrong” to track reading accuracy.
+Support children learning to read English by showing tricky words, one at a time. A parent listens and clicks “Right” or “Wrong” to track reading accuracy.
 
 ## Build Plan
 
-**MVP 1 - Core functionality**
+**MVP 1 - Core Functionality**
 
-- Start button
-- Display 1 word at a time (total of 10 words)
-- Right/wrong buttons
-- Track score
-- Track progress
-- Show a summary at the end
+- Start button ✔️
+- Display 1 word at a time (total of 10 words) ✔️
+- Right/wrong buttons ✔️
+- Track score ✔️
+- Track progress ✔️
+- Show a summary at the end ✔️
 
-**MVP 2 - Improve usability**
+**MVP 2 - Improve Usability**
 
-- Styling: sizing, fonts and colour
-- Transitions/animations between words
+- Styling/UI/UX ✔️
+- Variable number of words per round ✔️
+- Variable levels/difficulty of words ✔️
 
-**MVP 3 - Enhanced functionality**
+**Stretch Goals/Further Ideas**
 
-- Text to speech API https://cloud.google.com/text-to-speech
-- Mobile/tablet compatibility
-
-**Stretch goals/further ideas**
-
-- Words to be stored in external database
-- User log-in
-- Reward system
+- User log-in ✔️ (localStorage)
+- Reward system ✔️ (localStorage)
+- Setup of external database to store words, users, stats etc.
 - Custom tricky words
-- Words can be manually added/removed from library e.g. once it's no longer tricky for the reader anymore
+- Mobile/tablet compatibility
+- Text to speech API https://cloud.google.com/text-to-speech
 - AI suggestion for new words
 
 ## Tech Stack
@@ -46,7 +43,7 @@ Support children learning to read English by showing tricky words one at a time.
 - React Testing Library
 - jest-dom
 
-**Backend (planned)**
+**Backend**
 
 - Node.js with Express
 - PostgreSQL
@@ -54,33 +51,4 @@ Support children learning to read English by showing tricky words one at a time.
 **Deployment**
 
 - Vercel (frontend)
-
-## File Structure
-
-```plaintext
-tricky-words/
-├── node_modules/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── Header/
-│   │   │   └── Header.jsx
-│   │   ├── HomeScreen/
-│   │   │   └── HomeScreen.jsx
-│   │   ├── WordCard/
-│   │   │   └── WordCard.jsx
-│   │   ├── ProgressBar/
-│   │   │   └── ProgressBar.jsx
-│   │   └── SummaryScreen/
-│   │       └── SummaryScreen.jsx
-│   ├── data/
-│   │   └── trickyWords.json
-│   ├── App.jsx
-│   ├── App.css
-│   └── main.jsx
-├── index.html
-├── .gitignore
-├── package.json
-├── vite.config.js
-└── README.md
-```
+- Render (backend)

@@ -1,40 +1,66 @@
+import { useEffect } from "react";
+import "./SummaryScreen.css";
+
 export default function SummaryScreen({
   score,
   total,
   answers,
   restartSame,
   restartNew,
+  updateStars,
+  child,
 }) {
+  const fullMarks = score === total;
+
+  const correctAnswers = answers.filter((a) => a.correct);
+  const incorrectAnswers = answers.filter((a) => !a.correct);
+
+  useEffect(() => {
+    if (fullMarks) {
+      updateStars();
+    }
+  }, [fullMarks, updateStars]);
+
   return (
-    <div>
+    <div className="summary-screen">
       <h2>Summary</h2>
       <div>
-        You scored {score} out of {total}!
+        {child.name} scored {score} out of {total}.
       </div>
-      <ul
-        style={{
-          listStyleType: "none",
-          paddingLeft: 10,
-          maxWidth: 100,
-        }}
-      >
-        {answers.map((answer, index) => (
-          <li
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "10px",
-              fontWeight: answer.correct ? "normal" : "bold",
-            }}
-          >
-            <span>{answer.word}</span>
-            <span>{answer.correct ? "✔️" : "❌"}</span>
-          </li>
-        ))}
-      </ul>
-      <button onClick={restartSame}>Try Again</button>
-      <button onClick={restartNew}>New Round</button>
+      {fullMarks ? (
+        <div>
+          Well done, you read all the words correctly, and earned a star! ⭐
+        </div>
+      ) : (
+        <div>Practice any Tricky Words and Try Again!</div>
+      )}
+      {incorrectAnswers.length > 0 && (
+        <>
+          <h3 className="incorrect-title">Tricky Words</h3>
+          <ul className="incorrect-answers">
+            {incorrectAnswers.map((answer, index) => (
+              <li key={index}>{answer.word}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {correctAnswers.length > 0 && (
+        <>
+          <h3 className="correct-title">Correct Words</h3>
+          <ul className="correct-answers">
+            {correctAnswers.map((answer, index) => (
+              <li key={index}>{answer.word}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      <div className="summary-buttons">
+        <div className="summary-retry-label">Try Again</div>
+        <button onClick={restartSame}>Same Words</button>
+        <button onClick={restartNew}>New Words</button>
+      </div>
     </div>
   );
 }

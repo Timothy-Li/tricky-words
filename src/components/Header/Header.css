@@ -1,0 +1,45 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.guide-button,
+.home-button,
+.star-chart-button,
+.log-out-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  height: 55px;
+  background-color: transparent;
+  color: #777777;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none;
+}
+
+.guide-button:hover,
+.home-button:hover,
+.star-chart-button:hover,
+.log-out-button:hover {
+  color: rgb(93, 178, 182);
+}
+
+.main-title {
+  color: rgb(93, 178, 182);
+}
