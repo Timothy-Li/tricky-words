@@ -72,12 +72,7 @@ export default function WelcomeScreen({
                   {child.name.charAt(0).toUpperCase()}
                 </button>
                 <div className="child-info">
-                  <button
-                    className="child-name-button"
-                    onClick={() => onSelectChild(child.id)}
-                  >
-                    {child.name}
-                  </button>
+                  <button className="child-name-button">{child.name}</button>
                   <button
                     className="remove-button"
                     onClick={() => {

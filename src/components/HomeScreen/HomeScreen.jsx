@@ -8,7 +8,7 @@ export default function HomeScreen({
   setLevel,
 }) {
   const handleWordCountIncrement = () => {
-    if (totalWords < 30) {
+    if (totalWords < 20) {
       setTotalWords((prev) => prev + 5);
     }
   };
@@ -32,10 +32,10 @@ export default function HomeScreen({
   };
 
   const levelDescription = {
-    1: "Nursery (ages under 4): The alphabet",
-    2: "Reception (ages 4-5): Simple, short words",
-    3: "KS1 (ages 5-7): Words with moderate challenge",
-    4: "KS2 (ages 7-11): Trickiest words for advanced readers",
+    1: "Reception (ages 4-5): Simple, short words",
+    2: "Year 1 & 2 (ages 5-7): Easy words to build reading confidence",
+    3: "Year 3 & 4 (ages 7-9): Words with moderate challenge",
+    4: "Year 5 & 6 (ages 9-11): Trickiest words for advanced readers",
   };
 
   return (
@@ -53,7 +53,7 @@ export default function HomeScreen({
           <input
             type="range"
             min="5"
-            max="30"
+            max="20"
             step="5"
             value={totalWords}
             onChange={(e) => setTotalWords(Number(e.target.value))}
