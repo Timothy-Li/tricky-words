@@ -56,12 +56,12 @@ export default function WelcomeScreen({
           fontStyle: "italic",
         }}
       >
-        Welcome! Let’s make tricky words easier through practice.
+        Let’s turn tricky words into easy ones with practice!
       </h3>
 
       {children.length > 0 && (
         <div>
-          <h3>Who is Reading?</h3>
+          <h3>Who's Reading?</h3>
           <ul className="child-list">
             {children.map((child) => (
               <li key={child.id} className="child-item">

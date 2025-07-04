@@ -25,7 +25,7 @@ export default function SummaryScreen({
     <div className="summary-screen">
       <h2>Summary</h2>
       <div>
-        {child.name} scored {score} out of {total}.
+        You scored {score} out of {total}.
       </div>
       {fullMarks ? (
         <div>
