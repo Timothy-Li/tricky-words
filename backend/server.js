@@ -69,6 +69,37 @@ app.get("/words", (req, res) => {
   res.json(selected);
 });
 
+app.get("/api/wordoftheday", async (req, res) => {
+  try {
+    const apiKey = process.env.WORDNIK_API_KEY;
+    const response = await fetch(
+      `https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=${apiKey}`
+    );
+
+    if (!response.ok) {
+      console.error(
+        `Wordnik API error: ${response.status} ${response.statusText}`
+      );
+      return res
+        .status(response.status)
+        .json({ error: "Failed to fetch Word of the Day" });
+    }
+
+    const rawData = await response.json();
+
+    const data = {
+      word: rawData.word,
+      partOfSpeech: rawData.definitions?.[0]?.partOfSpeech || null,
+      definition: rawData.definitions?.[0]?.text || "No definition available.",
+    };
+
+    res.json(data);
+  } catch (err) {
+    console.error("Error fetching Wordnik Word of the Day:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });

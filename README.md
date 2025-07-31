@@ -23,10 +23,11 @@ Support children learning to read English by showing tricky words, one at a time
 
 - User log-in ✔️ (localStorage)
 - Reward system ✔️ (localStorage)
+- Word of the Day feature (awaiting API key Wordnik)
 - Setup of external database to store words, users, stats etc.
 - Custom tricky words
 - Mobile/tablet compatibility
-- Text to speech API https://cloud.google.com/text-to-speech
+- Text to speech (API https://cloud.google.com/text-to-speech)
 - AI suggestion for new words
 
 ## Tech Stack
