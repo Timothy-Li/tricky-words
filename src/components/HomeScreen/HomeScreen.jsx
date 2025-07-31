@@ -6,6 +6,7 @@ export default function HomeScreen({
   setTotalWords,
   level,
   setLevel,
+  isLoading,
 }) {
   const handleWordCountIncrement = () => {
     if (totalWords < 20) {
@@ -107,6 +108,12 @@ export default function HomeScreen({
       >
         Start
       </button>
+      {isLoading && (
+        <div className="loading-overlay">
+          <div className="loading-spinner" />
+          <p>Getting your words ready…</p>
+        </div>
+      )}
     </div>
   );
 }

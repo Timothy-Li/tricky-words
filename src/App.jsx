@@ -27,6 +27,7 @@ function App() {
   const [starsGiven, setStarsGiven] = useState(false);
   const [totalWords, setTotalWords] = useState(10);
   const [level, setLevel] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSelectChild = (id) => {
     setActiveChildId(id);
@@ -82,6 +83,7 @@ function App() {
 
   const startGame = async () => {
     setStarsGiven(false);
+    setIsLoading(true);
 
     try {
       const response = await fetch(
@@ -101,6 +103,8 @@ function App() {
       setAnswers([]);
     } catch (error) {
       console.error("Failed to fetch words:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -193,6 +197,7 @@ function App() {
           setTotalWords={setTotalWords}
           level={level}
           setLevel={setLevel}
+          isLoading={isLoading}
         />
       );
     }
